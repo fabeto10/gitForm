@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+    <ion-item lines="full">
+      <ion-label position="floating">
+        Email
+      </ion-label>
+      <ion-input type="text" name="email" ngModel required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">
+        Password
+      </ion-label>
+      <ion-input type="password" name="password" ngModel required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" value="send" expand="block">
+          Sign In
+        </ion-button>
+        <a [routerLink]="['/home']" class="small-text">
+          Home
+        </a>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

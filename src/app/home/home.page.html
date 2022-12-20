@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Tour
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngFor="let product of products">
+    <ion-card [routerLink]="['/product-detail', product.id]">
+      <img alt={{product.id}} src={{product.images[0]}} />
+      <ion-card-header>
+        <ion-card-subtitle>{{product.labels}}</ion-card-subtitle>
+        <ion-card-title>{{product.description}}</ion-card-title>
+      </ion-card-header>
+      <ion-content>
+        <ion-nav [root]="product.id"></ion-nav>
+      </ion-content>
+    </ion-card>
   </div>
+  <ion-button (click)="productsButton()">Products</ion-button>
+  <ion-button (click)="onLogOut()">logOut</ion-button>
+  <ion-button [routerLink]="['/login']">Login</ion-button>
+  <!-- <ion-grid *ngIf="products.length !== null"> -->
+    <!-- <ion-grid>
+    <ion-title>Tour</ion-title>
+    <ion-row>
+      <ion-col align-self-center>
+        <ion-button [routerLink]="['/registration']" expand="block" color="primary">
+          Register
+        </ion-button>
+          <span></span>
+          <span></span>
+        <ion-button [routerLink]="['/login']" expand="block" color="danger">
+          Sign In
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
 </ion-content>

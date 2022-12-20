@@ -25,3 +25,8 @@
 #container a {
   text-decoration: none;
 }
+
+ion-card-header {
+  display: flex;
+  flex-flow: column-reverse;
+}
